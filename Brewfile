@@ -2,3 +2,4 @@
 brew "rbenv"
 brew "node"
 brew "watchman"
+brew "phantomjs"
