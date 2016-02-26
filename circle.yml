@@ -32,6 +32,11 @@ dependencies:
     - npm install -g bower
     - cd frontend; npm i -q && bower i
 
+database:
+  override:
+    - cd api; cp config/database.yml.ci config/database.yml
+    - cd api; bundle exec rake db:create db:migrate db:seed --trace
+
 ## Customize test commands
 test:
   override:
