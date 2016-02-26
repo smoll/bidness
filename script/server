@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# script/server: Launch the application and any extra required processes
+#                locally.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap
+
+test -z "$RAILS_ENV" &&
+  RAILS_ENV='development'
+
+cd "$(dirname "$0")/../api"
+
+bundle exec rails s
