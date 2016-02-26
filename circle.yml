@@ -1,0 +1,44 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/New_York # Set the timezone
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.2.2
+
+  # Version of node to use
+  node:
+    version:
+      5.7.0
+
+## Customize dependencies
+dependencies:
+  cache_directories:
+    # Rails API
+    - "api/vendor/bundle"
+
+    # Ember app
+    - "frontend/node_modules"
+    - "frontend/bower_components"
+
+  override:
+    # Rails API
+    - cd api; bundle install --path vendor/bundle --without production debug # Can't install byebug on CircleCI
+
+    # Ember app
+    - npm install -g bower
+    - cd frontend; npm i -q && bower i
+
+## Customize test commands
+test:
+  override:
+    # Rails API
+    - cd api; bundle exec rake
+
+    # Ember app
+    # - cd frontend; npm test
+
+# For customizations, see https://circleci.com/docs/config-sample
