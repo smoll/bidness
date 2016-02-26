@@ -34,14 +34,13 @@ dependencies:
 
 database:
   override:
-    - cp config/database.yml.ci config/database.yml
-    - bundle exec rake db:create db:migrate db:seed --trace
+    - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
 
 ## Customize test commands
 test:
   override:
     # Rails API
-    - bundle exec rake
+    - RAILS_ENV=test bundle exec rake
 
     # Ember app
     # - cd frontend; npm test
