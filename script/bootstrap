@@ -46,6 +46,9 @@ which bundle >/dev/null 2>&1  || {
 if [ -f "Gemfile" ]; then
   echo "==> Installing gem dependencies..."
   bundle check >/dev/null 2>&1  || {
+    # If this fails on pg gem install and you use Postgres.app,
+    # see http://stackoverflow.com/a/20226895; TL;DR, do:
+    # gem install pg -v '0.18.4' -- --with-pg-config=$(find /Applications -name pg_config)
     bundle install --quiet --without production
   }
 fi
