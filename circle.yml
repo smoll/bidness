@@ -18,7 +18,7 @@ machine:
 dependencies:
   cache_directories:
     # Rails API
-    - "api/vendor/bundle"
+    - "vendor/bundle"
 
     # Ember app
     - "frontend/node_modules"
@@ -26,7 +26,7 @@ dependencies:
 
   override:
     # Rails API
-    - cd api; bundle install --path vendor/bundle --without production debug # Can't install byebug on CircleCI
+    - bundle install --path vendor/bundle --without production debug # Can't install byebug on CircleCI
 
     # Ember app
     - npm install -g bower
@@ -34,14 +34,14 @@ dependencies:
 
 database:
   override:
-    - cd api; cp config/database.yml.ci config/database.yml
-    - cd api; bundle exec rake db:create db:migrate db:seed --trace
+    - cp config/database.yml.ci config/database.yml
+    - bundle exec rake db:create db:migrate db:seed --trace
 
 ## Customize test commands
 test:
   override:
     # Rails API
-    - cd api; bundle exec rake
+    - bundle exec rake
 
     # Ember app
     # - cd frontend; npm test
