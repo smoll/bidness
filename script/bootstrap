@@ -19,7 +19,6 @@ if [ -f "Brewfile" ] && [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 echo "===> Installing api dependencies..."
-cd "api"
 
 echo "==> Checking rbenv installation..."
 if [[ ":$PATH:" == *":$HOME/.rbenv/shims:"* ]]; then
@@ -54,7 +53,7 @@ if [ -f "Gemfile" ]; then
 fi
 
 echo "===> Installing frontend dependencies..."
-cd "../frontend"
+cd "frontend"
 
 which bower >/dev/null 2>&1  || {
   npm install -gq bower

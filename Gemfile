@@ -19,6 +19,7 @@ group :development do
   gem "meta_request"
   gem "quiet_assets"
   gem "spring"
+  gem "foreman"
 end
 
 group :development, :test do
