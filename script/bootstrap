@@ -19,7 +19,7 @@ if [ -f "Brewfile" ] && [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 echo "===> Installing api dependencies..."
-cd "$(dirname "$0")/../api"
+cd "api"
 
 echo "==> Checking rbenv installation..."
 if [[ ":$PATH:" == *":$HOME/.rbenv/shims:"* ]]; then
@@ -51,15 +51,16 @@ if [ -f "Gemfile" ]; then
 fi
 
 echo "===> Installing frontend dependencies..."
-# cd "$(dirname "$0")/../frontend"
+cd "../frontend"
 
-# which bower >/dev/null 2>&1  || {
-#   npm install -gq bower
-# }
+which bower >/dev/null 2>&1  || {
+  npm install -gq bower
+}
 
-# which ember >/dev/null 2>&1  || {
-#   npm install -gq ember
-# }
+which ember >/dev/null 2>&1  || {
+  npm install -gq ember
+}
 
-# echo "==> Installing ember app dependencies..."
-# ( cd frontend && npm i -q && bower i )
+echo "==> Installing ember app dependencies..."
+npm i -q --no-optional
+bower i
