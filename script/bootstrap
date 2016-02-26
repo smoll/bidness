@@ -51,15 +51,15 @@ if [ -f "Gemfile" ]; then
 fi
 
 echo "===> Installing frontend dependencies..."
-cd "$(dirname "$0")/../frontend"
+# cd "$(dirname "$0")/../frontend"
 
-which bower >/dev/null 2>&1  || {
-  npm install -gq bower
-}
+# which bower >/dev/null 2>&1  || {
+#   npm install -gq bower
+# }
 
-which ember >/dev/null 2>&1  || {
-  npm install -gq ember
-}
+# which ember >/dev/null 2>&1  || {
+#   npm install -gq ember
+# }
 
-echo "==> Installing ember app dependencies..."
-( cd frontend && npm i -q && bower i )
+# echo "==> Installing ember app dependencies..."
+# ( cd frontend && npm i -q && bower i )
