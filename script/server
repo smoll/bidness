@@ -7,11 +7,9 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-script/bootstrap
+script/update
 
 test -z "$RAILS_ENV" &&
   RAILS_ENV='development'
 
-cd "$(dirname "$0")/../api"
-
-bundle exec rails s
+foreman start
