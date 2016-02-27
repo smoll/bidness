@@ -1,1 +1,15 @@
-{{outlet}}
+<h1>{{model.firstName}} {{model.lastName}}</h1>
+
+<dl>
+  <dt>Email</dt>
+  <dd>{{model.email}}</dd>
+
+  <dt>Title</dt>
+  <dd>{{model.title}}</dd>
+</dl>
+
+<p>
+  Updated at: {{model.updatedAt}}
+  <br>
+  Created at: {{model.createdAt}}
+</p>
