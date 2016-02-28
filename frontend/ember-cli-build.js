@@ -7,8 +7,7 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: [
         'bower_components/bourbon/app/assets/stylesheets',
-        'bower_components/neat/app/assets/stylesheets',
-        'public/assets' // for bitters
+        'bower_components/neat/app/assets/stylesheets'
       ]
     }
   });
