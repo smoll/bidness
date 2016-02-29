@@ -5,6 +5,6 @@ export default DS.Model.extend({
   lastName: DS.attr('string'),
   email: DS.attr('string'),
   title: DS.attr('string'),
-  createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  createdAt: DS.attr('isodate'),
+  updatedAt: DS.attr('isodate')
 });
